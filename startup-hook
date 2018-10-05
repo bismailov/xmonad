@@ -69,3 +69,13 @@ fi
 # device
 TOUCHPAD_ID=`xinput | grep 'Synaptics TouchPad' | cut -f 2 | cut -f 2 -d =`
 xinput set-prop $TOUCHPAD_ID "Device Enabled" 0
+
+
+yakuake &
+setxkbmap -option "grp:alt_shift_toggle,grp_led:scroll,ctrl:nocaps" -layout "us,ru,uz" &
+xautolock -time 11 -locker "gnome-screensaver-command -l" -notify 10 -notifier "notify-send -t 5000 -i gtk-dialog-info 'Locking in 10 seconds'" &
+#per window keyboard layout
+kbdd &
+xrandr --output eDP1 --mode 1600x900 & 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+

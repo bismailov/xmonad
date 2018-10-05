@@ -22,7 +22,7 @@ Config {
   -- of your screen to make it play nicely with stalonetray, which we
   -- want to be taking up the remainer of the space on the right side
   -- of your screen.
-  position = TopW L 95, 
+  position = TopW L 100, 
 
   -- list of commands which gather information about your system for
   -- presentation in the bar. 
@@ -54,6 +54,9 @@ Config {
       "-l", "red"
     ] 10,
 
+
+    Run Kbd [("us", "US"), ("ru", "RU"), ("uz", "UZ")],
+
     -- To get volume information, we run a custom bash script.
     -- This is because the built-in volume support in xmobar is disabled
     -- in Debian and derivatives like Ubuntu. 
@@ -64,6 +67,7 @@ Config {
     Run StdinReader
    ],
 
+
    -- Separator character used to wrape variables in the xmobar template 
    sepChar = "%",
 
@@ -73,5 +77,5 @@ Config {
 
    -- Overall template for the layout of the xmobar contents. Note that
    -- space is significant and can be used to add padding.
-   template = "%StdinReader% }{ %battery% | %cpu% | %memory% | Vol: %myvolume%    <fc=#e6744c>%date%</fc>     "
+   template = "%StdinReader% }{ %kbd% | %battery% | %cpu% | %memory% | Vol: %myvolume%    <fc=#e6744c>%date%</fc>     "
 }

@@ -211,8 +211,13 @@ myKeyBindings =
     , ((0, 0x1008FF12), spawn "amixer -q set Master toggle")
     , ((0, 0x1008FF11), spawn "amixer -q set Master 10%-")
     , ((0, 0x1008FF13), spawn "amixer -q set Master 10%+")
+    -- sleep with Mod + Shift + s
+    , ((myModMask .|. shiftMask, xK_s), spawn "systemctl suspend")
+    -- hibernate with Mod + Shift + h
+    , ((myModMask .|. shiftMask, xK_h), spawn "sudo systemctl hibernate")
+    -- lock screen with Mod + Shift + l
+    , ((myModMask .|. shiftMask, xK_l), spawn "gnome-screensaver-command -l")
   ]
-
 
 {-
   Management hooks. You can use management hooks to enforce certain
